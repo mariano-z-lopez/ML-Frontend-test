@@ -1,6 +1,6 @@
 import {authorTransformer} from '../toDomain';
 
-export default (itemsResponse, userResponse = {name: "mock", lastName: "mock"}, pageable = {size: 4, offset: 0}) => ({
+export default (itemsResponse, userResponse = {name: "mock", lastName: "mock"}) => ({
     author: authorTransformer(userResponse),
     items:  itemsResponse
 });
