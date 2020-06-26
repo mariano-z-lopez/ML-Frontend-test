@@ -1,0 +1,1 @@
+export default ({path_from_root}) => (path_from_root.map(path => path.name));
