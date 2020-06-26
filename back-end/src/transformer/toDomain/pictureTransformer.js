@@ -1,1 +1,1 @@
-export default (pictures) => pictures[0].url;
+export default ({pictures}) => pictures[0].url;
