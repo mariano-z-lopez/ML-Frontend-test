@@ -1,15 +1,6 @@
 import React from "react"
 import {render} from "react-dom"
-import "../styles/styles.sass"
-import Button from "@material-ui/core/Button";
+import HomePage from "./layout/HomePage";
+import "./style/MLGeneral.sass"
 
-const App = () => {
-    return (
-        <>
-            <h1>Hello from React</h1>
-            <Button color="primary">Hello World</Button>
-        </>
-    )
-};
-
-render(<App/>, document.getElementById("app"));
+render(<HomePage/>, document.getElementById("app"));
