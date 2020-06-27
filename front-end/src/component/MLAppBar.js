@@ -11,11 +11,17 @@ export default ({placeholder}) => {
     return (
         <AppBar position="static" className="ml-appBar">
             <Toolbar>
-                <Grid container className="ml-logo-container">
-                    <Grid item className="ml-logo-grid" xl={2} md={2} xs={2}>
-                        <img src={logo} alt="logo"/>
+                <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                        <Grid container  className="ml-logo-container" justify="center">
+                            <Grid item className="ml-logo-grid" xl={1} md={1} xs={1}>
+                                <img src={logo} alt="logo"/>
+                            </Grid>
+                            <Grid item className="ml-search-grid" xl={8} md={8} xs={6}>
+                                <MLSearchInput placeholder={placeholder}/>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <MLSearchInput placeholder={placeholder}/>
                 </Grid>
             </Toolbar>
         </AppBar>

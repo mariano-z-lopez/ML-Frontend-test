@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import MLAppBar from "../component/MLAppBar";
+import MLAppContainer from "../component/MLAppContainer";
 
 export default () => {
     let [state] = useState({
@@ -9,6 +10,8 @@ export default () => {
     return (
         <>
             <MLAppBar placeholder={state.appBarTextPlaceholder}/>
+            <MLAppContainer>
+            </MLAppContainer>
         </>
     );
 }
