@@ -8,6 +8,13 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 export default ({product}) => {
     let {title, price, picture, free_shipping, address} = product;
 
+    let formatter = new Intl.NumberFormat(undefined, {
+        style: 'currency',
+        currency: price.currency_id,
+        minimumFractionDigits: price.decimals
+    });
+
+
     const IsFreeShipping = () => {
         if (free_shipping) {
             return <img src={freeShippingLogo} alt="free-shipping"/>
@@ -25,6 +32,7 @@ export default ({product}) => {
             </Grid>
         );
     };
+    const getPrice = () => formatter.format(price.amount).replace(price.currency_id, "").replace(",", ".");
 
     const ProductInfo = () => {
         return (
@@ -34,7 +42,7 @@ export default ({product}) => {
                         <Grid container spacing={2} alignItems="baseline">
                             <Grid item>
                                 <Typography variant="h5" className="ml-product-price">
-                                    $ {price.amount.toFixed(price.decimals)}
+                                    $ {getPrice()}
                                 </Typography>
                             </Grid>
                             <Grid item>

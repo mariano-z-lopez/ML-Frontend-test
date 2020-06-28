@@ -1,25 +1,35 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import MLAppBar from "../component/MLAppBar";
 import MLAppContainer from "../component/MLAppContainer";
 import MLProductItem from "../component/MLProductItem";
+import itemService from "../service/ItemService";
 
 export default () => {
-    let [state] = useState({
+    let [state, setState] = useState({
         appBarTextPlaceholder: "Nunca dejes de buscar",
-        exampleProduct: {
-            title: "iPod Nano 7ma Generación 16 Gb Violeta",
-            price: {amount: 7.900, currency_id: "ARS", decimals: 3},
-            picture: "http://mla-s1-p.mlstatic.com/948059-MLA41805660187_052020-I.jpg",
-            free_shipping: true,
-            address: {city_name: "Capital Federal"}
-        }
+        items: []
     });
+
+    const handleSearchChange = (query) => {
+        itemService.findAllByQuery(query)
+            .then(res=> {
+                setState({
+                    ...state,
+                    items: res.data.items
+                })
+            })
+    };
+
+
+    const ProductList = () => {
+        return state.items.map(item => <MLProductItem key={item.id} product={item}/>)
+    };
 
     return (
         <>
-            <MLAppBar placeholder={state.appBarTextPlaceholder}/>
+            <MLAppBar placeholder={state.appBarTextPlaceholder} onChange={handleSearchChange}/>
             <MLAppContainer>
-                <MLProductItem product={state.exampleProduct}/>
+                <ProductList/>
             </MLAppContainer>
         </>
     );

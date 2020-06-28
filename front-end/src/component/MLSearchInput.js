@@ -1,13 +1,14 @@
-import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import searchIcon from "../../public/Assets/ic_Search.png";
 import React from "react";
 import "./MLSearchInput.sass"
+import TextFieldRx from "./TextFieldRx";
 
-export default ({placeholder}) => {
+export default ({placeholder, onChange}) => {
     return (
-        <TextField
+        <TextFieldRx
             fullWidth
+            onChange={onChange}
             placeholder={placeholder}
             variant="standard"
             className=".ml-search-input"
