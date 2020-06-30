@@ -1,6 +1,6 @@
 import axios from 'axios'
+import {BASE_API_URL} from "../configuration/AplicationProperties";
 
-const BASE_API_URL= process.env['BASE_API_URL'];
 const SEARCH_API_URL = `${BASE_API_URL}/sites/MLA/search`;
 const ITEM_API_URL = `${BASE_API_URL}/items`;
 

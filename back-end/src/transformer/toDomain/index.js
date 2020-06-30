@@ -1,4 +1,3 @@
-import authorTransformer from "./authorTransformer";
 import categoryTransformer from "./categoryTransformer";
 import itemDescriptionTransformer from "./itemDescriptionTransformer";
 import baseItemTransformer from "./baseItemTransformer";
@@ -8,6 +7,6 @@ import pictureTransformer from "./pictureTransformer";
 import priceTransformer from "./priceTransformer";
 
 export {
-    authorTransformer, categoryTransformer, baseItemTransformer, itemDescriptionTransformer, priceTransformer,
+    categoryTransformer, baseItemTransformer, itemDescriptionTransformer, priceTransformer,
     pictureTransformer, itemTransformer, searchItemTransformer
 }

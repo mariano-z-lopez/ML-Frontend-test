@@ -1,7 +1,6 @@
 import baseItemTransformer from "./baseItemTransformer";
-import {categoryTransformer} from "./index";
-export default ({thumbnail, address, ...rest}, categoryResponse) => ({
-    categories: categoryTransformer(categoryResponse),
+
+export default ({thumbnail, address, ...rest}) => ({
     ...baseItemTransformer(rest),
     picture: thumbnail,
     address
