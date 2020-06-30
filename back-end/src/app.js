@@ -1,5 +1,6 @@
-import {APP_PORT} from "./configuration/AplicationProperties";
+import 'dotenv/config';
 import itemResource from './resource/ItemResource';
+import {APP_PORT} from "./configuration/AplicationProperties";
 import express from "express";
 import cors from 'cors'
 

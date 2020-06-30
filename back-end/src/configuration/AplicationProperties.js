@@ -1,9 +1,7 @@
-import 'dotenv/config';
-
 //ML API URL
 const BASE_API_URL= process.env['BASE_API_URL'];
 //APP port
-const APP_PORT = process.env.PORT;
+const APP_PORT = process.env.PORT || 3000;
 //App author
 const AUTHOR_NAME = "Mariano";
 const AUTHOR_LAST_NAME = "Lopez";
