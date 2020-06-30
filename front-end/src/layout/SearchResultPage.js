@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from "react";
-import {useLocation} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 import MLProductItem from "../component/MLProductItem";
 import itemService from "../service/ItemService";
+import {SEARCH_RESULT_URL} from "../router";
 
 export default (props) => {
+    let history = useHistory();
     let queryParams = new URLSearchParams(useLocation().search);
     let [state, setState] = useState({
-        items: []
+        items: [],
+        selectedItem: null
     });
 
     const handleSearchChange = () => {
@@ -24,7 +27,16 @@ export default (props) => {
 
     useEffect(handleSearchChange, [props.location.search]);
 
-    const ProductList = () => state.items.map(item => <MLProductItem key={item.id} product={item}/>)
+    const handleOnProductClick = (id) => {
+        history.push({
+            pathname: `${SEARCH_RESULT_URL}/${id}`
+        })
+    };
+
+    const ProductList = () => state.items.map(item => {
+        return <MLProductItem key={item.id} product={item}
+                              handleOnProductClick={()=>handleOnProductClick(item.id)}/>
+    });
 
     return (
         <ProductList/>
