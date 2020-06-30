@@ -1,5 +1,4 @@
 import {APP_PORT} from "./configuration/AplicationProperties";
-
 import itemResource from './resource/ItemResource';
 import express from "express";
 import cors from 'cors'

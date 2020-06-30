@@ -3,7 +3,18 @@ import {getAuthor} from "./AuthorService";
 import {categoryTransformer, searchItemTransformer} from "../transformer/toDomain";
 import {findItemTransformer} from "../transformer/toDto"
 
-const getCategories = ({available_filters: filters}) => (filters.find(item=> "category" in item && item.id === "category"));
+const getCategories = ({filters}) => {
+    let categoriesResponse = filters.find(item=> "id" in item && item.id === "category");
+    let categories;
+
+    if (typeof categoriesResponse !== "undefined") {
+        categories =  categoryTransformer(categoriesResponse);
+    } else {
+        categories = [];
+    }
+
+    return categories;
+};
 
 export const findAllByQuery = async (query, pageable = {size: 4, offset: 0}) => {
     let res = await _findAllByQuery(query);
@@ -11,7 +22,7 @@ export const findAllByQuery = async (query, pageable = {size: 4, offset: 0}) => 
 
     let author = getAuthor();
     let items = result.map(item => searchItemTransformer(item));
-    let categories =  categoryTransformer(getCategories(res.data));
+    let categories = getCategories(res.data);
 
     return {author, categories, items}
 };
