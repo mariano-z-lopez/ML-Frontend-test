@@ -1,5 +1,7 @@
-export default ({price, currency_id}) => ({
-    amount: price,
+import {countDecimals} from "../../utils/NumbersUtils";
+
+export default ({price: amount, currency_id}) => ({
+    amount,
     currency_id,
-    decimals: 0
+    decimals: countDecimals(amount)
 });

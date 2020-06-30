@@ -1,7 +1,7 @@
-import {authorTransformer, baseItemTransformer, itemDescriptionTransformer, pictureTransformer} from "../toDomain";
+import {baseItemTransformer, itemDescriptionTransformer, pictureTransformer} from "../toDomain";
 
-export default (itemResponse, descriptionResponse, userResponse = {name:"mock", lastName:"mock"}) => ({
-    author: authorTransformer(userResponse),
+export default (itemResponse, descriptionResponse, authorResponse) => ({
+    author: authorResponse,
     item: {
         ...baseItemTransformer(itemResponse),
         sold_quantity: itemResponse.sold_quantity,
