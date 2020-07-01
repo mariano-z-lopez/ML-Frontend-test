@@ -2,7 +2,7 @@ import Typography from "@material-ui/core/Typography";
 import React from "react";
 import "./MLPrice.sass"
 
-export default ({price: {amount, currency_id: currency, decimals}, className},...rest) => {
+export default ({price: {amount, currency_id: currency, decimals}, className}) => {
     let formatter = new Intl.NumberFormat(undefined, {
         style: 'currency',
         currency: currency,
@@ -17,7 +17,7 @@ export default ({price: {amount, currency_id: currency, decimals}, className},..
     };
 
     return (
-        <Typography className={`ml-product-price ${className}`} {...rest}>
+        <Typography className={`ml-product-price ${className}`}>
             {`$${getPrice()}`}
         </Typography>
     );
