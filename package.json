@@ -7,9 +7,9 @@
     "node": "12.x"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node src/app.js",
+    "dev": "nodemon --exec babel-node src/app.js",
     "build": "babel src/ --out-dir build",
-    "server": "node build/app.js",
+    "start": "node build/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mariano Lopez",
