@@ -1,0 +1,1 @@
+export default ({plain_text}) => (plain_text);
