@@ -11,7 +11,7 @@ export default () => {
     }));
     return (
         <Grid container justify="center" className="ml-categories-container">
-            <Grid item xs={10}>
+            <Grid item xs={10} md={10} xl={10}>
                 <Breadcrumbs separator=">">
                     {categories.map(category => {
                         return <Typography key={category} className="ml-category-name">{category}</Typography>

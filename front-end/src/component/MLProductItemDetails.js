@@ -19,7 +19,7 @@ export default (
         return (
             <Grid item xs={12} xl={8} md={8}>
                 <Grid container alignContent="center" direction="column">
-                    <Grid item className="ml-product-item-image-container">
+                    <Grid item className="ml-product-item-image-container" xs={12}>
                         <img src={picture} alt="product" className="ml-product-image"/>
                     </Grid>
                 </Grid>
@@ -53,7 +53,7 @@ export default (
 
     const PurchaseContainer = () => {
         return (
-            <Grid item xs={4}>
+            <Grid item md={4} xl={4} xs={12}>
                 <Grid container alignContent="flex-end" direction="column">
                     <Grid item>
                         <ConditionAndSoldQuantity/>
@@ -72,7 +72,7 @@ export default (
 
     const ProductDetails = () => {
         return (
-            <Grid item className="ml-product-item-description-container" xs={8}>
+            <Grid item className="ml-product-item-description-container" md={8} xl={8} xs={12}>
                 <Grid container direction="column">
                     <Grid item>
                         <Typography className="ml-product-item-detail-detail-title-placeholder">
@@ -95,9 +95,11 @@ export default (
 
     return (
         <Grid container className="ml-product-detail-container">
-            <Grid container>
-                <ProductImage/>
-                <PurchaseContainer/>
+            <Grid item xs={12}>
+                <Grid container>
+                    <ProductImage/>
+                    <PurchaseContainer/>
+                </Grid>
             </Grid>
             <ProductDetails/>
         </Grid>

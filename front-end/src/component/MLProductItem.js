@@ -20,7 +20,7 @@ export default ({product, handleOnProductClick}) => {
 
     const ProductImage = () => {
         return (
-            <Grid item className="ml-product-image-container">
+            <Grid item className="ml-product-image-container" xs={4} xl={2} md={2}>
                 <img src={picture} alt="product" className="ml-product-preview-image"/>
             </Grid>
         );
@@ -28,7 +28,7 @@ export default ({product, handleOnProductClick}) => {
 
     const ProductInfo = () => {
         return (
-            <Grid item className="ml-product-info-container" xl={6} md={6} xs={6} onClick={handleOnProductClick}>
+            <Grid item className="ml-product-info-container" xl={6} md={6} xs={10}>
                 <Grid container direction="column">
                     <Grid item>
                         <Grid container spacing={2} alignItems="baseline">
@@ -69,7 +69,7 @@ export default ({product, handleOnProductClick}) => {
     };
 
     return (
-        <Grid container>
+        <Grid container onClick={handleOnProductClick}>
             <ProductImage/>
             <ProductInfo/>
             <AddressInfo/>
