@@ -1,12 +1,15 @@
 {
   "name": "ml-item-front-end",
+  "homepage": "https://mariano-z-lopez.github.io/ML-Frontend-test/",
   "version": "1.0.0",
   "description": "reactjs front-end for ML items",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --env.ENVIRONMENT=development --progress --mode development --open --hot",
     "build": "webpack --env.ENVIRONMENT=production --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Mariano Lopez",
   "license": "ISC",
@@ -27,6 +30,7 @@
     "css-loader": "^3.6.0",
     "dotenv": "^8.2.0",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.3.0",
     "node-sass": "^4.14.1",
     "redux-logger": "^3.0.6",
