@@ -16,7 +16,7 @@ export default (props) => {
 
     const handleSearchChange = () => {
         let _query = queryParams.get("search");
-        console.log("search", _query);
+
         if (_query) {
             itemService.findAllByQuery(_query)
                 .then(res=> {
@@ -39,7 +39,8 @@ export default (props) => {
     };
 
     const ProductList = () => state.items.map(item => {
-        return <MLProductItem key={item.id} product={item}
+        return <MLProductItem key={item.id}
+                              product={item}
                               handleOnProductClick={()=>handleOnProductClick(item.id)}/>
     });
 

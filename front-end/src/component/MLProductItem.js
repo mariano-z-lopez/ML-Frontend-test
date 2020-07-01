@@ -4,6 +4,7 @@ import "./MLProductItem.sass"
 import Typography from "@material-ui/core/Typography";
 import freeShippingLogo from "../../public/Assets/ic_shipping.png"
 import MLPrice from "./MLPrice";
+import Divider from "@material-ui/core/Divider";
 
 export default ({product, handleOnProductClick}) => {
     let {title, price, picture, free_shipping, address} = product;
@@ -59,11 +60,20 @@ export default ({product, handleOnProductClick}) => {
         );
     };
 
+    const ProductDivider = () => {
+        return (
+            <Grid item xs={12} className="ml-product-divider-grid">
+                <Divider/>
+            </Grid>
+        );
+    };
+
     return (
         <Grid container>
             <ProductImage/>
             <ProductInfo/>
             <AddressInfo/>
+            <ProductDivider/>
         </Grid>
     );
 }
