@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "nodejs backend api that aims for product's search",
   "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "start": "nodemon --exec babel-node src/app.js",
     "build": "babel src/ --out-dir build",
