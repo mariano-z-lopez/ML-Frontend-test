@@ -53,7 +53,7 @@ module.exports = (env) => {
         output: {
             path: path.join(__dirname, "/build"),
             filename: "bundle.js",
-            publicPath: "/"
+            publicPath: "/ML-Frontend-test/"
         },
         plugins: [
             new HtmlWebpackPlugin({
