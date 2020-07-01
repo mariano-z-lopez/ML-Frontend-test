@@ -3,27 +3,32 @@ import {useHistory, useLocation} from "react-router-dom";
 import MLProductItem from "../component/MLProductItem";
 import itemService from "../service/ItemService";
 import {SEARCH_RESULT_URL} from "../router";
+import {useDispatch} from "react-redux";
+import {saveCategories} from "../store/CategoriesAction";
 
 export default (props) => {
     let history = useHistory();
     let queryParams = new URLSearchParams(useLocation().search);
+    const dispatch = useDispatch();
     let [state, setState] = useState({
         items: [],
-        selectedItem: null
     });
 
     const handleSearchChange = () => {
         let _query = queryParams.get("search");
+        console.log("search", _query);
         if (_query) {
             itemService.findAllByQuery(_query)
                 .then(res=> {
-                    setState({
-                        ...state,
-                        items: res.data.items
-                    })
+                    persistItems(res.data.items);
+                    persistCategories(res.data.categories);
                 })
         }
     };
+
+    const persistItems = (items) => setState({...state, items});
+
+    const persistCategories = (categories) => dispatch(saveCategories(categories));
 
     useEffect(handleSearchChange, [props.location.search]);
 

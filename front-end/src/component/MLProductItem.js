@@ -60,7 +60,7 @@ export default ({product, handleOnProductClick}) => {
     };
 
     return (
-        <Grid className="ml-product-container" container>
+        <Grid container>
             <ProductImage/>
             <ProductInfo/>
             <AddressInfo/>
