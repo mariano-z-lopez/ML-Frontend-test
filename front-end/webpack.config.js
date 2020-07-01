@@ -1,26 +1,25 @@
 const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const nodeExternals = require('webpack-node-externals');
 const dotenv = require('dotenv');
 const fs = require('fs');
 
 const rules = [
     {
         test: /\.js$/,
-        exclude: path.resolve(__dirname, "node_modules"),
+        exclude: /node_modules/,
         use: {
             loader: "babel-loader"
         }
     },
     {
         test: /\.sass$/,
-        exclude: path.resolve(__dirname, "node_modules"),
+        exclude: /node_modules/,
         use: ["style-loader", "css-loader", "sass-loader"]
     },
     {
         test: /\.(png|svg|jpg|gif)$/,
-        exclude: path.resolve(__dirname, "node_modules"),
+        exclude: /node_modules/,
         use: ["file-loader"]
     }
 ];
