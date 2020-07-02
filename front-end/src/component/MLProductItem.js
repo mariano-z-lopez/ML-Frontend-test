@@ -5,10 +5,27 @@ import Typography from "@material-ui/core/Typography";
 import freeShippingLogo from "../../public/Assets/ic_shipping.png"
 import MLPrice from "./MLPrice";
 import Divider from "@material-ui/core/Divider";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    paddingMediaQuery: {
+        [theme.breakpoints.down('sm')]: {
+            padding: 15,
+        },
+        [theme.breakpoints.up('md')]: {
+            padding: 0,
+            paddingTop: 50
+        },
+        [theme.breakpoints.up('lg')]: {
+            padding: 0,
+            paddingTop: 50
+        },
+    },
+}));
 
 export default ({product, handleOnProductClick}) => {
-    let {title, price, picture, free_shipping, address} = product;
-
+    let {title, price, picture, free_shipping, address: {city_name}} = product;
+    const classes = useStyles();
 
     const IsFreeShipping = () => {
         if (free_shipping) {
@@ -20,7 +37,7 @@ export default ({product, handleOnProductClick}) => {
 
     const ProductImage = () => {
         return (
-            <Grid item className="ml-product-image-container" xs={4} xl={2} md={2}>
+            <Grid item className="ml-product-image-container" xs={12} xl={2} md={4}>
                 <img src={picture} alt="product" className="ml-product-preview-image"/>
             </Grid>
         );
@@ -28,7 +45,7 @@ export default ({product, handleOnProductClick}) => {
 
     const ProductInfo = () => {
         return (
-            <Grid item className="ml-product-info-container" xl={6} md={6} xs={10}>
+            <Grid item className={`${classes.paddingMediaQuery} ml-product-info-container`} xl={6} md={6} xs={10}>
                 <Grid container direction="column">
                     <Grid item>
                         <Grid container spacing={2} alignItems="baseline">
@@ -50,10 +67,10 @@ export default ({product, handleOnProductClick}) => {
 
     const AddressInfo = () => {
         return (
-            <Grid item className="ml-product-address-info-container" xl={2} md={2} xs={2}>
+            <Grid item className={classes.paddingMediaQuery} xl={2} md={1} xs={1}>
                 <Grid container alignItems="flex-end" direction="column">
                     <Grid item>
-                        <Typography variant="caption" className="ml-product-address">{address.city_name}</Typography>
+                        <Typography variant="caption" className="ml-product-address">{city_name}</Typography>
                     </Grid>
                 </Grid>
             </Grid>
