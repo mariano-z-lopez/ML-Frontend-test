@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const dotenv = require('dotenv');
 const fs = require('fs');
+const getPublicPath = require("./src/utils/PublicPathUtils")
 
 const rules = [
     {
@@ -31,11 +32,6 @@ function getEnvFile(environment) {
 
     return dotenv.config({path: finalPath}).parsed;
 }
-
-function getPublicPath(environment) {
-    return environment === "production" ? "/ML-Frontend-test/" : "/";
-}
-
 
 module.exports = (env) => {
     const fileEnv = getEnvFile(env.ENVIRONMENT);

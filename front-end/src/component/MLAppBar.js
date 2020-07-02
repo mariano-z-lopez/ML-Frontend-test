@@ -36,7 +36,7 @@ const MLAppBar = () => {
     useEffect(dispatchSearch, [state.querySearch]);
 
     return (
-        <Grid container>
+        <Grid container className="ml-appBar-container">
             <Grid item xs={12}>
                 <AppBar position="static" className="ml-appBar">
                     <Toolbar>
