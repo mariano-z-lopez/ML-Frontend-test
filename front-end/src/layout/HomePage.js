@@ -4,7 +4,7 @@ import {Routes} from "../router";
 import MLAppBar from "../component/MLAppBar";
 import MLAppContainer from "../component/MLAppContainer";
 import MLCategoriesBreadcrumbs from "../component/MLCategoriesBreadcrumbs";
-import {getPublicPath} from "../utils/PublicPathUtils"
+import getPublicPath from "../utils/PublicPathUtils"
 
 export default () => {
 
