@@ -45,7 +45,7 @@ export default ({product, handleOnProductClick}) => {
 
     const ProductInfo = () => {
         return (
-            <Grid item className={`${classes.paddingMediaQuery} ml-product-info-container`} xl={6} md={6} xs={10}>
+            <Grid item className={`${classes.paddingMediaQuery} ml-product-info-container`} xl={6} md={6} xs={8}>
                 <Grid container direction="column">
                     <Grid item>
                         <Grid container spacing={2} alignItems="baseline">
@@ -67,7 +67,7 @@ export default ({product, handleOnProductClick}) => {
 
     const AddressInfo = () => {
         return (
-            <Grid item className={classes.paddingMediaQuery} xl={2} md={1} xs={1}>
+            <Grid item className={classes.paddingMediaQuery} xl={2} md={1} xs={2}>
                 <Grid container alignItems="flex-end" direction="column">
                     <Grid item>
                         <Typography variant="caption" className="ml-product-address">{city_name}</Typography>
