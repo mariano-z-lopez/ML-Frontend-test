@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const dotenv = require('dotenv');
 const fs = require('fs');
+const getPublicPath = require("./src/utils/PublicPathUtils")
 
 const rules = [
     {
@@ -32,7 +33,6 @@ function getEnvFile(environment) {
     return dotenv.config({path: finalPath}).parsed;
 }
 
-
 module.exports = (env) => {
     const fileEnv = getEnvFile(env.ENVIRONMENT);
 
@@ -53,7 +53,7 @@ module.exports = (env) => {
         output: {
             path: path.join(__dirname, "/build"),
             filename: "bundle.js",
-            publicPath: "/"
+            publicPath: getPublicPath(env.ENVIRONMENT)
         },
         plugins: [
             new HtmlWebpackPlugin({
