@@ -32,6 +32,10 @@ function getEnvFile(environment) {
     return dotenv.config({path: finalPath}).parsed;
 }
 
+function getPublicPath(environment) {
+    return environment === "production" ? "/ML-Frontend-test/" : "/";
+}
+
 
 module.exports = (env) => {
     const fileEnv = getEnvFile(env.ENVIRONMENT);
@@ -53,7 +57,7 @@ module.exports = (env) => {
         output: {
             path: path.join(__dirname, "/build"),
             filename: "bundle.js",
-            publicPath: "/"
+            publicPath: getPublicPath(env.ENVIRONMENT)
         },
         plugins: [
             new HtmlWebpackPlugin({
