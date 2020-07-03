@@ -6,7 +6,7 @@ import logo from "../../public/Assets/Logo_ML.png"
 import Grid from "@material-ui/core/Grid";
 import MLSearchInput from "./MLSearchInput";
 import {useHistory, withRouter} from "react-router-dom";
-import {PUBLIC_URL, SEARCH_RESULT_URL} from "../router";
+import {SEARCH_RESULT_URL} from "../router";
 
 const MLAppBar = () => {
     let [state, setState] = useState({
@@ -27,7 +27,7 @@ const MLAppBar = () => {
         let {querySearch: query} = state;
         if (query) {
             history.push({
-                pathname: PUBLIC_URL + SEARCH_RESULT_URL,
+                pathname: SEARCH_RESULT_URL,
                 search: `?search=${query}`,
             })
         }

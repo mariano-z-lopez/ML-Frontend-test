@@ -2,7 +2,6 @@ import {HomePage, ItemDetailsPage, SearchResultPage} from "../layout"
 import React from "react";
 import {Route, Switch} from "react-router-dom";
 
-export const PUBLIC_URL = process.env['ENVIRONMENT'] === "production" ? "/ML-Frontend-test" : "";
 export const HOME_PAGE_URL = "/";
 export const SEARCH_RESULT_URL = "/items";
 

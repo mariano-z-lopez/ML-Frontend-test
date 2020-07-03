@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useHistory, useLocation} from "react-router-dom";
 import MLProductItem from "../component/MLProductItem";
 import itemService from "../service/ItemService";
-import {PUBLIC_URL, SEARCH_RESULT_URL} from "../router";
+import {SEARCH_RESULT_URL} from "../router";
 import {useDispatch} from "react-redux";
 import {saveCategories} from "../store/CategoriesAction";
 
@@ -34,7 +34,7 @@ export default (props) => {
 
     const handleOnProductClick = (id) => {
         history.push({
-            pathname: `${PUBLIC_URL + SEARCH_RESULT_URL}/${id}`
+            pathname: `${SEARCH_RESULT_URL}/${id}`
         })
     };
 
