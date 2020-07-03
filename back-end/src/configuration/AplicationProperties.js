@@ -1,5 +1,5 @@
 //ML API URL
-const BASE_API_URL= process.env['BASE_API_URL'] || "https://dudley-bunnyhug-62622.herokuapp.com/api";
+const BASE_API_URL= process.env['BASE_API_URL'] || "https://api.mercadolibre.com";
 //APP port
 const APP_PORT = process.env.PORT || 3000;
 //App author

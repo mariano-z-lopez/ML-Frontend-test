@@ -30,16 +30,25 @@ function getEnvFile(environment) {
     const envPath = basePath + '.' + environment;
     const finalPath = fs.existsSync(envPath) ? envPath : basePath;
 
-    return dotenv.config({path: finalPath}).parsed;
+    return fs.existsSync(finalPath)? dotenv.config({path: finalPath}).parsed : null;
 }
 
 module.exports = (env) => {
     const fileEnv = getEnvFile(env.ENVIRONMENT);
 
-    const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
-        prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
-        return prev;
-    }, {});
+    const plugins = [new HtmlWebpackPlugin({
+        template: "./public/index.html"
+    })];
+
+    if (typeof fileEnv != "undefined" && fileEnv !== null) {
+
+        const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
+            prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
+            return prev;
+        }, {});
+
+        plugins.push(new webpack.DefinePlugin(envKeys))
+    }
 
     return {
         entry: path.resolve(__dirname, "./src/index.js"),
@@ -55,13 +64,6 @@ module.exports = (env) => {
             filename: "bundle.js",
             publicPath: getPublicPath(env.ENVIRONMENT)
         },
-        plugins: [
-            new HtmlWebpackPlugin({
-                template: "./public/index.html"
-            }),
-            new webpack.DefinePlugin(envKeys)
-        ],
-        //target: 'node', // in order to ignore built-in modules like path, fs, etc.
-        //externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+        plugins: plugins
     }
 };

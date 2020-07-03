@@ -1,7 +1,5 @@
-const GH_PAGES_PATH = "/ML-Frontend-test/";
-
-module.exports = (environment) => {
-    const path = environment === "production" ? GH_PAGES_PATH : "/";
+module.exports = () => {
+    const path = process.env.PUBLIC_PATH || "/";
     console.log("PATH", path);
     return path;
 };

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  ml-frontend:
+    build: ./front-end/
+    image: ml-frontend
+    ports:
+      - "80:80"
+  ml-backend:
+    build: ./back-end/
+    image: ml-backend
+    ports:
+    - "3000:3000"
